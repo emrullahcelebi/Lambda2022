@@ -35,7 +35,11 @@ public class C002 {
         //bestenBuyukSil(liste);
         //baslangicYadaSonHarfIcinSilme(liste);
         uzunlugu8Ile10ArasiVeOileBiten(liste);
-
+        System.out.println();
+        System.out.println(uzunlugu12denAz(liste));
+        System.out.println();
+        System.out.println(xIleBaslamiyorMu(liste));
+        System.out.println(rIleBItiyorMu(liste));
     }
     public static void buyukHarfYazdiran(List<String> list){
         list.stream().map(String::toUpperCase).forEach(Utils::bosluk);
@@ -71,5 +75,15 @@ public static void uzunlugu8Ile10ArasiVeOileBiten(List<String>list){
     list.removeIf(t->t.length()>7 && t.length()<11 || t.endsWith("o"));
     System.out.println(list);
 }
+public static boolean uzunlugu12denAz(List<String>list){
+    return list.stream().allMatch(t->t.length()<12);
+
+    }
+    public static boolean xIleBaslamiyorMu(List<String>list){
+    return list.stream().noneMatch(t->t.startsWith("X"));
+    }
+    public static boolean rIleBItiyorMu(List<String>list){
+    return list.stream().anyMatch(t->t.endsWith("r"));
+    }
 
 }
